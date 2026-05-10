@@ -1,0 +1,95 @@
+/* =============================================
+   RISYADH ALFARISY - PORTOFOLIO
+   style.css - OPTIMIZED VERSION
+   ============================================= */
+
+/* --- BASE --- */
+body {
+    background-color: #0E0E1E;
+    color: #E2E8F0;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- SCROLLBAR --- */
+.hide-scroll::-webkit-scrollbar { display: none; }
+.hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* --- PARTICLES BACKGROUND --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    will-change: transform; /* hint GPU */
+}
+
+/* --- NAVBAR --- */
+.nav-glowing {
+    background: rgba(14, 14, 30, 0.85); /* lebih opaque = blur lebih ringan */
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    backdrop-filter: blur(8px);         /* turun dari 12px ke 8px */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 99px;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+/* --- BENTO BOX (CARD) --- */
+.bento-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    /* backdrop-filter dihapus dari card — penyebab freeze terbesar di HP */
+    will-change: transform;
+}
+.bento-box:hover {
+    transform: translateY(-3px);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 8px 30px -8px rgba(139, 92, 246, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Di HP, matiin hover transform supaya tidak lag */
+@media (max-width: 768px) {
+    .bento-box {
+        will-change: auto;
+    }
+    .bento-box:hover {
+        transform: none;
+    }
+}
+
+/* --- TEXT GRADIENT --- */
+.text-gradient {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- SKILL PROGRESS BAR --- */
+.progress-bar {
+    height: 6px;
+    border-radius: 99px;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    margin-top: 8px;
+}
+.progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    width: 0;
+    will-change: width;
+}
+
+/* --- TYPING CURSOR --- */
+.blink-cursor { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* --- INITIAL STATE --- */
+#main-nav, #main-content { opacity: 1; transform: translateY(0); }
+
